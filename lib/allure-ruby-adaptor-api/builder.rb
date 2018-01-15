@@ -126,7 +126,7 @@ module AllureRubyAdaptorApi
               xml.send :title, suite_title
               xml.send "test-cases" do
                 suite[:tests].each do |test_title, test|
-                  xml.send "test-case", :start => test[:start] || 0, :stop => test[:stop] || 0, :status => test[:status] do
+                  xml.send "test-case", :start => test[:start] || 0, :stop => test[:stop] || 0, :status => test[:status] || 'broken' do
                     xml.send :name, test_title
                     xml.send :title, test_title
                     unless test[:failure].nil?
